@@ -1,596 +1,299 @@
 Type of clouds: 
 
 Public: Servers managed by Microsoft 
-
 Access services offered 
-
 low cost, less maintenance 
-
 High Availability & Reliability & Scalability 
 
- 
-
 Private: Servers managed by company 
-
 Own entire infra: case 
-
 Govt agency / Financial Inst use case, where they don’t want to share data / information 
-
 High cost & High maintenance (Servers, Storage, Hardware, Network, Electricity, Security) 
 
-  
-
 Hybrid: On-premise servers + Az Services 
-
 Can't migrate to cloud case 
-
   
-
 Types of Services: 
-
 IAAS: Virtual Machine (server) & Containers and VNet 
-
 Physical server on Az 
-
 No Capital Expenses – No need to invest on initial investments before starting project 
-
 Reduces Operating expense 
-
 Focus on business 
-
 Diff compute types 
-
 Manage workloads: IIS + MS-SQl Server 
 
-  
-
 PAAS: VM on server (IAAS) + Additional Systems 
-
 Physical Server / VM / additional systems - managed by Az 
-
 e.g App Service, Az Sql db, Azure Web Apps, Storage, SQL Azure Database  
-
 Spins-up, high-availability, automated backups 
 
-  
-
 SAAS: Software As a service  
-
 VM on server (IAAS) + Additional Systems (PAAS) 
-
 e.g., Gmail, Office 365 (Online outlook, word, ppt) 
 
-  
-
 Expenditure: 
-
 Az gives 0 CapEx (Capital Expenditure) 
-
-pay only for running cost of resource 
+pay only for running cost of resource
 
 CapEx : Zero CapEx if used Cloud services 
-
-No Buy Physical Servers (App Servers, DB Servers, DR) 
-
-No Buy Storage (Additional Disks) 
-
-No Buy S/W licenses 
-
-No Buy DB licenses 
-
+No Buy Physical Servers (App Servers, DB Servers, DR)
+No Buy Storage (Additional Disks)
+No Buy S/W licenses
+No Buy DB licenses
 No Buy Networking 
 
-  
-
 OpEx : 
-
-Maintain Infra (It Admins)  
-
-Electricity cost 
-
-  
+Maintain Infra (It Admins)
+Electricity cost
 
 Shared Responsibility: 
-
 Infrastructure means: servers, storage, security, network on data centers (SSSN acronym) 
 
 Az responsibility: 
-
 Up-time of service: VMs, DBs, Infra 
-
 Maintenance of underlying physical infra 
-
 Data-center: cooling + security + electricity 
 
- 
-
-Page Break
 Customer responsibility: 
-
 OS patching / updates (VM) 
-
-Apps + data on VM 
-
- 
+Apps + data on VM  
 
 Az Geography 
-
-Az Region 
-
-Az-1 
-
-Az-2 
-
-Az-3 
+ Az Region 
+  Az-1 
+  Az-2 
+  Az-3 
 
 e.g Az Geography (Asia Pacific) 
-
-South India (Chennai) 
-
-West India (Mumbai) 
-
-Central India (Pune) 
-
-Az-1 
-
-Az-2 
-
-Az-3 
-
-Jio India Central (Nagpur) 
-
-Jio India West (Jamnagar) 
-
- 
+     South India (Chennai) 
+     West India (Mumbai) 
+     Central India (Pune) 
+      Az-1 
+      Az-2 
+      Az-3 
+     Jio India Central (Nagpur) 
+     Jio India West (Jamnagar) 
 
 Az Regions 
-
 Geographic locations 
-
 Location based data center 
-
 Each Azure region features datacenters deployed within a latency-defined perimeter 
-
 They're connected through a dedicated regional low-latency network 
 
- 
-
-Availability Zones 
-
+Availability Zones
 Region with multiple data centers 
-
 1 or more datacenters = availability zone 
-
 has independent cooling + security + electricity 
 
-  
-
 Az Portal  
-
 B1S - free tier VM  
 
-  
-
 Resource (R) 
-
 manageable item on Az 
-
 app service (web-app), Vm, Az Sql 
-
 VM -> assigned to NSG (Network Security Group - control traffic to VM) 
-
 Disk attached to Vm 
 
-  
-
 Resource Groups (RG) 
-
 Container to hold resources (R) (Collection of Resources) 
-
 group set of resources 
-
 collectively manage all resources 
-
 (xxxxx-rg) naming convention (-rg-prod, -rg-dev, -rg-qa, -rg-uat) 
-
 all resources are mapped with RG 
 
-  
-
 Az Virtual Network 
-
 Define own network in Az 
-
 VMs created are hosted in VN 
-
 Can create Multiple VNs 
-
 VNs consists multiple SUBNETS 
-
 Need to assign IPv4 Address Space: 10.0.0.0/16 
-
 Define multiple subnets 
-
 Each subnet - subset of VN 
-
-subnet1 - 10.0.1.0/24 
-
-subnet2 - 10.0.2.0/24 
-
+ subnet1 - 10.0.1.0/24 
+ subnet2 - 10.0.2.0/24 
 VMs are created part of subnet (range of IP addresses in the virtual network) 
-
 VMs will get private address (depends on subnet) 
-
-10.0.1.4 , 	10.0.2.4 
-
+ 10.0.1.4 , 	10.0.2.4 
 Communication through private address 
-
 We can assign Public IP to VM 
-
-40.11.112.4 | 50.1.200.4 
+ 40.11.112.4 | 50.1.200.4 
 
 Communicate VMs through VNs: 
-
 Direct VM to VM comm not possible 
-
 VN Peering connection 
 
-  
-
-Az Virtual Machines 
-
-IAAS 
-
+Az Virtual Machines (IAAS)
 No manage infra, Az will manage 
-
 Deploy any type of workload (see types of VMs) 
-
 Assigned Disks for storage (VHD files) 
-
 Assigned OS disk (SSD) 
-
-  
-
 VM is placed inside VN(Subnet) 
-
-  
-
 Assigned Network Interface (NI) separate resource 
-
 NI enables a virtual machine to communicate with Internet, Azure, and on-premises resources 
-
 NI gets private and public IP 
-
-  
-
 Can add Data disk 
 
 NSG - controls traffic flow to VM 
 
 Monitoring: CPU and N/W utilization 
 
-   
-
 Az Dedicated Hosts (VM) 
-
 Physical server as Resource 
-
 Host VMs 
-
 Complete H/W isolation, no others can host their VMs 
-
 Control over Az's schedule-maintained events 
 
-  
-
 Az Market Place 
-
 In general, you have to create VM, install WordPress / oracle db. 
-
 In marketplace, you can get VM which has got WordPress / oracle db installed. 
 
-  
-
 Network Security Group (NSG) 
-
 Control traffic into subnet / vm 
-
 contains rules for I/O traffic 
-
 like a Virtual Network Interface Card 
-
- 
-
 when you create VM, it's not directly accessible outside i.e., RDP 
-
 Allow RDP traffic via NSG 
-
 Allow Http traffic via NSG 
 
-  
-
 Scale sets VM (High Availability) 
-
 Scale infra based on demand 
-
 Scale Out -> Demand Increases, increase VM count (Come Out / expand) 
-
 Scale In -> Demand Decreases, decrease VM count (sink in) 
-
 Applied to VMs + Web Apps 
-
 In general, if we stop VM to increase size, this causes down time to customers 
-
 Scale OUT: Starts increasing VMs when certain condition is met i.e., CPU utilization > 70%	(Adds Vms from scale sets) 
-
 Scale IN: Starts decreasing VMs when certain condition is met i.e., CPU utilization < 30% 	(Remove Vms from scale sets) 
-
 Instance Count: 1 Vm in beginning 
 
- 
-
 Az Load Balancer  
-
 High Availability for web-apps 
-
 Allows to distribute traffic to backend VMs in VN 
-
 It directs requests to backend VMs 
-
+Global LB - balance traffic at geographies level
 Internal LB - balance traffic with-in VN 
-
 Public LB - balance traffic coming from internet 
-
 2 Pricing Tiers - Basic & Standard 
-
 In Az Portal, select Type: Internal / External (this is where you define whether you are creating internal / external load balancer) 
-
 Case: (ILB, ELB) 
-
-2 Db servers + 2 App Servers 
-
-2 App Servers exposed to Users via Internet 
-
+  2 Db servers + 2 App Servers 
+  2 App Servers exposed to Users via Internet 
 ILB - balance traffic b/w 2 DB servers and 2 App Servers 
-
 ELB - balance traffic b/w 2 App Servers and Users 
-
 Lab: Steps for Creating LB 
-
-Frontend IP Config  
-
-Backend Pool - VMs (In Load Balancer creation, select VMs i.e., linking VMs with Load Balancer) 
-
-Health Probe - check health of VMs 
-
-Load balancing Rules - forward request (User -> LB -> Front IP -> Backend pool VM) 
-
+     Frontend IP Config  
+     Backend Pool - VMs (In Load Balancer creation, select VMs i.e., linking VMs with Load Balancer) 
+     Health Probe - check health of VMs 
+     Load balancing Rules - forward request (User -> LB -> Front IP -> Backend pool VM) 
 Works at layer 4 i.e., at Network Layer 
 
-  
-
 Application Gateway (AG) 
-
 It’s a type of LB that works at Layer -7 i.e., at Application Layer 
-
 Full managed services (no need to manage, infra, scalability, availability) 
-
 URL Based routing (Routing based on routes) 
-
 User -> AG -> VM 
-
 case where 2 routes are available: http:<domain>/ & http:<domain>/video & http:<domain>/images 
-
 Depending on the route i.e., path of the URL, AG will redirect that request to relevant VM 
-
 here, VM to process videos (http:<domain>/video) 
-
 here, VM to process images (http:<domain>/images) 
-
- 
 
 Add Web Application Firewall as feature (Protect Web Apps in VM to avoid SQL Injection, Cross Site scripting)	 
 
- 
-
 Big Word Alert: VM,VN,Subnet,NI,NSG,R,RG, 
 
- 
-
 Storage Accounts (Highly Scalable) 
-
 Types: Blob, File, Table, Queue 
-
 No manage infra. durable, available and scalable on demand 
-
- 
-
+Lab : 
 Create Storage Account + Containers (upload objects to containers) 
-
 Hot Tier	-Data accessed frequently 
-
 Cool Tier	-Data accessed infrequently 
-
 Archive Tier	-Data accessed rarely (you cannot get data if it's in this mode, will have to change its tier to Cool/Hot to get data out of archive 
-
 Set restrains while accessing in BLOB storage 
 
- 
-
 Blob Storage- 
-
 Object store 
-
 Store unstructured data 
-
 Case for storing files, videos, images / backup data 
-
 Store log files 
 
-  
-
 Table Storage 
-
 Store structed NoSQL data 
-
 Key attribute store 
-
 Cost effective option 
 
- 
-
 File Storage 
-
 Retrieve files via Server Message Block Protocol 
-
 Mount file share on Windows, Linux Mac based machines 
-
 No Manage file servers 
 
- 
-
 Queue Storage 
-
-Store messages  
-
-Decouple components of app 
-
+Store messages in queue data structure
+usecase : Decouple components of app 
 Single message can have 64kb in size 
-
 Store millions of messages in queue 
 
-  
-
 Region Pairs (Replicate data in other Regions - Availability) 
-
 Region contains data centers (low latency) 
-
 Az geography is an area containing 1 Az region 
-
 Can't decide region pair, Az handles it dynamically (In US-East, you created storage, and enabled Redundancy 
-
 LRS 		– Locally redundant storage 
-
 ZRS 		– Zone redundant storage 
-
 GRS		- Geo redundant storage 
-
 RA-GRS		- Read-Access geo-redundant storage 
-
 GZRS		- geo-zone-redundant storage 
-
 RA-GZRS	- Read Access geo-redundant storage 
 
- 
-
-Page Break
 VPN Gateway (Network Specific) 
-
 Connect on-premise network to Azure network 
-
 Point to Site 	– connect workstations to Az Vnet 
-
 - Install VPN client 
-
 - use Certificates to auth clients 
-
-Site to Site	- Connect on-premise VNet to Az VNet 
-
-  
+Site to Site	- Connect on-premise VNet to Az VNet   
 
 Virtual Network Peering (VM Specific) 
-
 2 VMs in 2 VNets 
-
 Communication has to be through Public IP, to enable communication through Private IP address over Azure backbone network 
-
 Security benefit as traffic doesn't flow through Internet 
 
- 
-
 Az Express Route 
-
 Extend on-premise company’s network to Microsoft cloud using private connection 
-
 Private link / connection which is not used for public 
 
- 
-
-Az Web App 
-
-PAAS 
-
+Az Web App (PAAS)
 Service for hosting web applications 
-
 No manage infra 
-
 Hosting options for websites 
-
 – VM way 		-> VM + Web Server + Deploy App + Security Updates 
-
 – App Service way 	-> No VM + No Web Server + Deploy App + No Security Updates (Only Deploy) 
-
 Deploy multiple web apps to same Az App Service (App Service Plans) 
-
 Feature - Perform Scaling, Devops CD, Blue Green staging slots, AD/google authentication 
 
- 
-
 Windows Virtual Desktop 
-
 Desktop and application virtualization service on cloud 
-
 Multi-session win 10 deployments 
-
 Virtualize Microsoft 365 Apps for enterprise 
-
 Key terms - Host pool, App groups, workspaces, End users 
 
- 
-
 Azure Databricks 
-
 Apache Spark based analytics platform  
-
- 
-
 Create Managed Apache clusters 
-
 Auto scale Clusters, create serverless clusters 
-
 Interactive dashboards to create dynamic reports 
-
 Create workspace, launch workspace, create cluster, create notebooks  
-
- 
 
 Azure HDInsight 
 
- 
-
 Azure ARM templates (Deployment and Management Service – Template-level Deployment) 
-
 JSON template that contains resources that we want to create, dynamically deploy resources in loop 
-
 Upload these templates to ARM and it creates resources 
-
 Repeatedly create resources 
-
 Elements –  
-
-Schema (what's inside Json) – JSON Schema / Elements 
-
-Parameters - Provide values during deployment that allow the same template to be used with different environments. 
-
-Variables - values reused in templates. They can be constructed from parameter values. 
-
-User-defined functions - Create customized functions that simplify your template. 
-
-Resources - Specify resources for deployment. 
-
-Outputs - Return values from deployed resources. 
-
- 
+  Schema (what's inside Json) – JSON Schema / Elements 
+  Parameters - Provide values during deployment that allow the same template to be used with different environments. 
+  Variables - values reused in templates. They can be constructed from parameter values. 
+  User-defined functions - Create customized functions that simplify your template. 
+  Resources - Specify resources for deployment. 
+  Outputs - Return values from deployed resources. 
 
 Cognitive Services 
 
