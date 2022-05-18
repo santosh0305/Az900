@@ -1,0 +1,1358 @@
+Type of clouds: 
+
+Public: Servers managed by Microsoft 
+
+Access services offered 
+
+low cost, less maintenance 
+
+High Availability & Reliability & Scalability 
+
+ 
+
+Private: Servers managed by company 
+
+Own entire infra: case 
+
+Govt agency / Financial Inst use case, where they don’t want to share data / information 
+
+High cost & High maintenance (Servers, Storage, Hardware, Network, Electricity, Security) 
+
+  
+
+Hybrid: On-premise servers + Az Services 
+
+Can't migrate to cloud case 
+
+  
+
+Types of Services: 
+
+IAAS: Virtual Machine (server) & Containers and VNet 
+
+Physical server on Az 
+
+No Capital Expenses – No need to invest on initial investments before starting project 
+
+Reduces Operating expense 
+
+Focus on business 
+
+Diff compute types 
+
+Manage workloads: IIS + MS-SQl Server 
+
+  
+
+PAAS: VM on server (IAAS) + Additional Systems 
+
+Physical Server / VM / additional systems - managed by Az 
+
+e.g App Service, Az Sql db, Azure Web Apps, Storage, SQL Azure Database  
+
+Spins-up, high-availability, automated backups 
+
+  
+
+SAAS: Software As a service  
+
+VM on server (IAAS) + Additional Systems (PAAS) 
+
+e.g., Gmail, Office 365 (Online outlook, word, ppt) 
+
+  
+
+Expenditure: 
+
+Az gives 0 CapEx (Capital Expenditure) 
+
+pay only for running cost of resource 
+
+CapEx : Zero CapEx if used Cloud services 
+
+No Buy Physical Servers (App Servers, DB Servers, DR) 
+
+No Buy Storage (Additional Disks) 
+
+No Buy S/W licenses 
+
+No Buy DB licenses 
+
+No Buy Networking 
+
+  
+
+OpEx : 
+
+Maintain Infra (It Admins)  
+
+Electricity cost 
+
+  
+
+Shared Responsibility: 
+
+Infrastructure means: servers, storage, security, network on data centers (SSSN acronym) 
+
+Az responsibility: 
+
+Up-time of service: VMs, DBs, Infra 
+
+Maintenance of underlying physical infra 
+
+Data-center: cooling + security + electricity 
+
+ 
+
+Page Break
+Customer responsibility: 
+
+OS patching / updates (VM) 
+
+Apps + data on VM 
+
+ 
+
+Az Geography 
+
+Az Region 
+
+Az-1 
+
+Az-2 
+
+Az-3 
+
+e.g Az Geography (Asia Pacific) 
+
+South India (Chennai) 
+
+West India (Mumbai) 
+
+Central India (Pune) 
+
+Az-1 
+
+Az-2 
+
+Az-3 
+
+Jio India Central (Nagpur) 
+
+Jio India West (Jamnagar) 
+
+ 
+
+Az Regions 
+
+Geographic locations 
+
+Location based data center 
+
+Each Azure region features datacenters deployed within a latency-defined perimeter 
+
+They're connected through a dedicated regional low-latency network 
+
+ 
+
+Availability Zones 
+
+Region with multiple data centers 
+
+1 or more datacenters = availability zone 
+
+has independent cooling + security + electricity 
+
+  
+
+Az Portal  
+
+B1S - free tier VM  
+
+  
+
+Resource (R) 
+
+manageable item on Az 
+
+app service (web-app), Vm, Az Sql 
+
+VM -> assigned to NSG (Network Security Group - control traffic to VM) 
+
+Disk attached to Vm 
+
+  
+
+Resource Groups (RG) 
+
+Container to hold resources (R) (Collection of Resources) 
+
+group set of resources 
+
+collectively manage all resources 
+
+(xxxxx-rg) naming convention (-rg-prod, -rg-dev, -rg-qa, -rg-uat) 
+
+all resources are mapped with RG 
+
+  
+
+Az Virtual Network 
+
+Define own network in Az 
+
+VMs created are hosted in VN 
+
+Can create Multiple VNs 
+
+VNs consists multiple SUBNETS 
+
+Need to assign IPv4 Address Space: 10.0.0.0/16 
+
+Define multiple subnets 
+
+Each subnet - subset of VN 
+
+subnet1 - 10.0.1.0/24 
+
+subnet2 - 10.0.2.0/24 
+
+VMs are created part of subnet (range of IP addresses in the virtual network) 
+
+VMs will get private address (depends on subnet) 
+
+10.0.1.4 , 	10.0.2.4 
+
+Communication through private address 
+
+We can assign Public IP to VM 
+
+40.11.112.4 | 50.1.200.4 
+
+Communicate VMs through VNs: 
+
+Direct VM to VM comm not possible 
+
+VN Peering connection 
+
+  
+
+Az Virtual Machines 
+
+IAAS 
+
+No manage infra, Az will manage 
+
+Deploy any type of workload (see types of VMs) 
+
+Assigned Disks for storage (VHD files) 
+
+Assigned OS disk (SSD) 
+
+  
+
+VM is placed inside VN(Subnet) 
+
+  
+
+Assigned Network Interface (NI) separate resource 
+
+NI enables a virtual machine to communicate with Internet, Azure, and on-premises resources 
+
+NI gets private and public IP 
+
+  
+
+Can add Data disk 
+
+NSG - controls traffic flow to VM 
+
+Monitoring: CPU and N/W utilization 
+
+   
+
+Az Dedicated Hosts (VM) 
+
+Physical server as Resource 
+
+Host VMs 
+
+Complete H/W isolation, no others can host their VMs 
+
+Control over Az's schedule-maintained events 
+
+  
+
+Az Market Place 
+
+In general, you have to create VM, install WordPress / oracle db. 
+
+In marketplace, you can get VM which has got WordPress / oracle db installed. 
+
+  
+
+Network Security Group (NSG) 
+
+Control traffic into subnet / vm 
+
+contains rules for I/O traffic 
+
+like a Virtual Network Interface Card 
+
+ 
+
+when you create VM, it's not directly accessible outside i.e., RDP 
+
+Allow RDP traffic via NSG 
+
+Allow Http traffic via NSG 
+
+  
+
+Scale sets VM (High Availability) 
+
+Scale infra based on demand 
+
+Scale Out -> Demand Increases, increase VM count (Come Out / expand) 
+
+Scale In -> Demand Decreases, decrease VM count (sink in) 
+
+Applied to VMs + Web Apps 
+
+In general, if we stop VM to increase size, this causes down time to customers 
+
+Scale OUT: Starts increasing VMs when certain condition is met i.e., CPU utilization > 70%	(Adds Vms from scale sets) 
+
+Scale IN: Starts decreasing VMs when certain condition is met i.e., CPU utilization < 30% 	(Remove Vms from scale sets) 
+
+Instance Count: 1 Vm in beginning 
+
+ 
+
+Az Load Balancer  
+
+High Availability for web-apps 
+
+Allows to distribute traffic to backend VMs in VN 
+
+It directs requests to backend VMs 
+
+Internal LB - balance traffic with-in VN 
+
+Public LB - balance traffic coming from internet 
+
+2 Pricing Tiers - Basic & Standard 
+
+In Az Portal, select Type: Internal / External (this is where you define whether you are creating internal / external load balancer) 
+
+Case: (ILB, ELB) 
+
+2 Db servers + 2 App Servers 
+
+2 App Servers exposed to Users via Internet 
+
+ILB - balance traffic b/w 2 DB servers and 2 App Servers 
+
+ELB - balance traffic b/w 2 App Servers and Users 
+
+Lab: Steps for Creating LB 
+
+Frontend IP Config  
+
+Backend Pool - VMs (In Load Balancer creation, select VMs i.e., linking VMs with Load Balancer) 
+
+Health Probe - check health of VMs 
+
+Load balancing Rules - forward request (User -> LB -> Front IP -> Backend pool VM) 
+
+Works at layer 4 i.e., at Network Layer 
+
+  
+
+Application Gateway (AG) 
+
+It’s a type of LB that works at Layer -7 i.e., at Application Layer 
+
+Full managed services (no need to manage, infra, scalability, availability) 
+
+URL Based routing (Routing based on routes) 
+
+User -> AG -> VM 
+
+case where 2 routes are available: http:<domain>/ & http:<domain>/video & http:<domain>/images 
+
+Depending on the route i.e., path of the URL, AG will redirect that request to relevant VM 
+
+here, VM to process videos (http:<domain>/video) 
+
+here, VM to process images (http:<domain>/images) 
+
+ 
+
+Add Web Application Firewall as feature (Protect Web Apps in VM to avoid SQL Injection, Cross Site scripting)	 
+
+ 
+
+Big Word Alert: VM,VN,Subnet,NI,NSG,R,RG, 
+
+ 
+
+Storage Accounts (Highly Scalable) 
+
+Types: Blob, File, Table, Queue 
+
+No manage infra. durable, available and scalable on demand 
+
+ 
+
+Create Storage Account + Containers (upload objects to containers) 
+
+Hot Tier	-Data accessed frequently 
+
+Cool Tier	-Data accessed infrequently 
+
+Archive Tier	-Data accessed rarely (you cannot get data if it's in this mode, will have to change its tier to Cool/Hot to get data out of archive 
+
+Set restrains while accessing in BLOB storage 
+
+ 
+
+Blob Storage- 
+
+Object store 
+
+Store unstructured data 
+
+Case for storing files, videos, images / backup data 
+
+Store log files 
+
+  
+
+Table Storage 
+
+Store structed NoSQL data 
+
+Key attribute store 
+
+Cost effective option 
+
+ 
+
+File Storage 
+
+Retrieve files via Server Message Block Protocol 
+
+Mount file share on Windows, Linux Mac based machines 
+
+No Manage file servers 
+
+ 
+
+Queue Storage 
+
+Store messages  
+
+Decouple components of app 
+
+Single message can have 64kb in size 
+
+Store millions of messages in queue 
+
+  
+
+Region Pairs (Replicate data in other Regions - Availability) 
+
+Region contains data centers (low latency) 
+
+Az geography is an area containing 1 Az region 
+
+Can't decide region pair, Az handles it dynamically (In US-East, you created storage, and enabled Redundancy 
+
+LRS 		– Locally redundant storage 
+
+ZRS 		– Zone redundant storage 
+
+GRS		- Geo redundant storage 
+
+RA-GRS		- Read-Access geo-redundant storage 
+
+GZRS		- geo-zone-redundant storage 
+
+RA-GZRS	- Read Access geo-redundant storage 
+
+ 
+
+Page Break
+VPN Gateway (Network Specific) 
+
+Connect on-premise network to Azure network 
+
+Point to Site 	– connect workstations to Az Vnet 
+
+- Install VPN client 
+
+- use Certificates to auth clients 
+
+Site to Site	- Connect on-premise VNet to Az VNet 
+
+  
+
+Virtual Network Peering (VM Specific) 
+
+2 VMs in 2 VNets 
+
+Communication has to be through Public IP, to enable communication through Private IP address over Azure backbone network 
+
+Security benefit as traffic doesn't flow through Internet 
+
+ 
+
+Az Express Route 
+
+Extend on-premise company’s network to Microsoft cloud using private connection 
+
+Private link / connection which is not used for public 
+
+ 
+
+Az Web App 
+
+PAAS 
+
+Service for hosting web applications 
+
+No manage infra 
+
+Hosting options for websites 
+
+– VM way 		-> VM + Web Server + Deploy App + Security Updates 
+
+– App Service way 	-> No VM + No Web Server + Deploy App + No Security Updates (Only Deploy) 
+
+Deploy multiple web apps to same Az App Service (App Service Plans) 
+
+Feature - Perform Scaling, Devops CD, Blue Green staging slots, AD/google authentication 
+
+ 
+
+Windows Virtual Desktop 
+
+Desktop and application virtualization service on cloud 
+
+Multi-session win 10 deployments 
+
+Virtualize Microsoft 365 Apps for enterprise 
+
+Key terms - Host pool, App groups, workspaces, End users 
+
+ 
+
+Azure Databricks 
+
+Apache Spark based analytics platform  
+
+ 
+
+Create Managed Apache clusters 
+
+Auto scale Clusters, create serverless clusters 
+
+Interactive dashboards to create dynamic reports 
+
+Create workspace, launch workspace, create cluster, create notebooks  
+
+ 
+
+Azure HDInsight 
+
+ 
+
+Azure ARM templates (Deployment and Management Service – Template-level Deployment) 
+
+JSON template that contains resources that we want to create, dynamically deploy resources in loop 
+
+Upload these templates to ARM and it creates resources 
+
+Repeatedly create resources 
+
+Elements –  
+
+Schema (what's inside Json) – JSON Schema / Elements 
+
+Parameters - Provide values during deployment that allow the same template to be used with different environments. 
+
+Variables - values reused in templates. They can be constructed from parameter values. 
+
+User-defined functions - Create customized functions that simplify your template. 
+
+Resources - Specify resources for deployment. 
+
+Outputs - Return values from deployed resources. 
+
+ 
+
+Cognitive Services 
+
+Build Cognitive intelligence  
+
+Vision, speech, language, decision, search APIs 
+
+ 
+
+Bot Service 
+
+Build bots for interaction 
+
+Interpret user say and get proper response 
+
+Bot emulator 
+
+Page Break
+Azure Devops (CI & CD) 
+
+Development + Operational + Security -> common goal 
+
+Goal to deliver applications at high speed 
+
+Az Boards – track stories, backlog, tasks, features, bugs 
+
+Az Repos – Version control 
+
+Az Pipelines – Build and test code 
+
+Az Test Plans – manage testing and UAT and shareholder feedback 
+
+Az Artifacts – create npm & Nuget packages 
+
+Process - Create Project 
+
+Lifecycle of Devops –  
+
+Repos – HTTPS / SSH git clone URLs where our code is hosted 
+
+Files – View physical files of solution 
+
+Pipelines – Where is source code hosted 
+
+What is framework / language (.NET Core), YAML (azure-pipelines.yml) 
+
+Create Pipeline - Creates VM and copy code from Repos into VM and .NET F/w MS build our code and destroy VM (Compute – build code) 
+
+No Infra to build code (Automatically by build services) - JOB 
+
+Page Break
+DevTest Labs 
+
+Enables dev teams to self-manage VMs and ARM resources 
+
+ 
+
+Az Web Apps (App Service – Plans) (No VM) 
+
+Dev/Test - For less demanding workloads 
+
+2 resources deployment – 1 is app service, 2 is app service plan 
+
+ 
+
+Serverless Services (Serverless, PAAS) 
+
+No maintain infra, software 
+
+Pay for what you use, less CapEx and OpEx 
+
+Az Functions - Deploy function code to azure, pay for amount of time the code runs 
+
+Serverless Kubernetes - Deploy container-based applications, Serverless version of Kubernetes 
+
+Az Logic Apps - Design workflows, Create workflow and integrations 
+
+Az Event Grid - Event based service, Handle evens generated from Az services 
+
+Az API Mgmt. - Manage backend APIs 
+
+Az Sql Database - Serverless version of SQL db 
+
+Az Cosmos DB - Serverless  
+
+ 
+
+Az Functions 
+
+Just have code, upload it and run-on demand 
+
+Input binding -> Az Function -> Output binding 
+
+E.g., input binding – object added to blob, invoke function 
+
+E.g., output binding – store data into Az table 
+
+Costing – consumption plan (charge is for number of executions, execution time and memory used).  
+
+5 mins is execution time in consumption plan 
+
+Costing app service plan – have instance, Az function can run for longer time + more memory 
+
+Types –  
+
+Webhook + API – Az Function in invoked when it gets HTTP request 
+
+Timer - Az Function is run at specified schedule 
+
+ 
+
+Az Event Grid 
+
+Listen to events raised by Az services 
+
+Subscribe to events 
+
+Define event handler and custom events 
+
+Highly available 
+
+Event source -> event handlers 
+
+ 
+
+Az Cosmos DB 
+
+Multimodal DB, low-latency access, replication of data across regions, scales, fully managed 
+
+Cosmos DB Account: 
+
+Table Api – to store table like data 
+
+Sql Api	-- get data using sql queries ->DB ID -> Collection id – Partition Key + Throughput (allocate right amount of resources) 
+
+LEAF mongo Api – db on mongo api 
+
+Ability to scale, High performance, hundreds of million requests / responses (Search kind of functionality) 
+
+Learn how to enable fast search 
+
+ 
+
+Az SQL Database (PAAS) 
+
+No manage, managed by Az 
+
+Differences of SQL on PASS Vs SQL IAAS 
+
+SQL–PAAS	- 99.99 % availability, built-in backup and recovery, minimal set of features are not 		   available, reduces Infra and maintenance cost 
+
+VM–SQL–IAAS	- Full control over SQL server engine, easy to migrate on-premise instance, maintained 		   by us, hence handle patch upgrades of system, handle manage availability manually 
+
+Managed Instance – if lift and shift existing on-premise database to Azure 
+
+Pricing is done in DTU (Database Transaction Unit) bundles measure of compute, storage and IO resources 
+
+vCore based model allows customers to choose amount of compute and storage, allows to control underlying resources and gives more flexibility. Is ideal if have licenses 
+
+Can use SSMS, VS IDE, .NET programs to connect and query DB. 
+
+DTU – Database transaction Unit, it’s a measure of represents a blended measure of CPU, memory, reads, and writes. 
+
+Higher DTUs means higher Costing. DTUs are for SQL Database. 
+
+SQL server & SQL database are created when we create SQL Database in Az 
+
+In SQL Server, set Firewalls and VPN as to enable access to DB from external clients. 
+
+ 
+
+Can also configure AD. Remember Server Name and Server Admin 
+
+In SQL Database get “Show database connection strings” and Server Name 
+
+ 
+
+Az Database for MySQL (PAAS) 
+
+MySQL community Edition on Az 
+
+High-Availability, no manage by customer. 
+
+Oracle Database to be chosen from Marketplace 
+
+Underpricing tab, select vCores and Storage, depending on these params, cost is estimated 
+
+Create MySQL server and  
+
+Use MySQL workbench to connect  
+
+Azure Database for MySQL Server – settings - Connection Security – connection security to be added (add client IP) as to allow only  
+
+Create DB from workbench 
+
+ 
+
+Az SQL Managed Instance 
+
+This is cloud-based service for hosting SQL database 
+
+Main benefit, underlying database engine has near 100% compatibility with latest SQL Server Enterprise Edition database engine 
+
+Easier for companies for Lift-Shift existing SQL Server workloads to Az 
+
+Provides native Virtual network (company specific network instance) 
+
+High availability and backups can be created 
+
+Takes hours to deploy 
+
+Use database migration service to migrate company’s database to Az 
+
+ 
+
+Az CDN (content Delivery Network) 
+
+Deliver web content to users 
+
+User across world access web application with seamless experience 
+
+Cache the most popular content of application 
+
+Users can access content fast If there are near to the deployed location where AppService is deployed, so what about users accessing content far from deployed location 
+
+Solution is, Az => CDN service => Edge Servers (Point of presence) these are placed at various locations across world. 
+
+CDN uses these servers and shares content 
+
+User accesses content, if content is not available at Edge server, it contacts Origin Server and downloads and then this content is cached in Edge Server 
+
+Create Profile, Create Endpoint – Existing WebApp / Storage Account 
+
+Attach multiple endpoints 
+
+CDN endpoint: <>. azureedge.net 
+
+ 
+
+Az Mgmt. Tools 
+
+Az Portal, PowerShell, Az CLI (only for Az), Az Cloud Shell from Az Portal in browser 
+
+ 
+
+Az Container Service (ACS) 
+
+Service to Deploy containers in Az 
+
+No manage VMs for hosting container instances 
+
+Deploy windows / Linux containers 
+
+While creating container, under Image sources we can select: QuickStart Image / Docker Hub (image available in Docker Hub) 
+
+e.g., docker hub: image = nginx 
+
+In networking, expose port 80 
+
+ 
+
+Az Kubernetes Service (AKS) 
+
+Container Orchestration tool 
+
+Tool to manage container-based applications 
+
+Tool to deploy microservices-based applications 
+
+Support stateless and stateful applications 
+
+Deploy on Kubernetes: Pods – each pod means single instance of application mapped to single container 
+
+Deployment – deployment of one or more identical pods 
+
+Kubernetes scheduler finds pods / nodes with any issues, pods are created on healthy nodes 
+
+Cluster will have underlying nodes of VMs, by default 3 nodes are created 
+
+Security, Privacy, Compliance and Trust 
+
+Authentication - Verify / identify user (username, password) 
+
+Authorization - Access to resource (user identity) 
+
+ 
+
+Az AD (Active Directory) 
+
+Identity and Access management service 
+
+Manage access to internal applications 
+
+User -> App -> Az AD 
+
+Az AD Free – user and group mgmt., sync users from on-premise env, basic reports, SSO 
+
+Az AD Basic – Free + access via group, self-service password reset. 
+
+Az AD Premium P1 – Basic + support dynamic groups, cloud writeback capabilities 
+
+Az AD Premium P2 – Basic + Identity Protection – conditional access to applications (MFA), Privileged Identity mgmt. – help discover, restrict and monitor administrators and their access to resources 
+
+ 
+
+Az Sentinel 
+
+Cloud-native Security information event mgmt. 
+
+Security orchestration automated response solution 
+
+Collect data at cloud - across users, devices, applications and infra for on-premise + on-cloud 
+
+Detection of threats – detect threats on companies env 
+
+Threat Investigation – able to hunt suspicious activities at scale 
+
+Workbooks – interactive reports  
+
+Analytics – rules to detect threats, define custom rules 
+
+Create workspace, add instance name (log analytics) 
+
+Data connectors – to collect data  
+
+ 
+
+Az Security Center – see recommendations, regulatory compliance (regulatory standards) 
+
+Az Defender – monitor resources (see pricing) 
+
+Az Firewall – fully managed n/w security in VNet, scale-up on demand 
+
+ 
+
+In VNet, in security, enable firewall at network level  
+
+ 
+
+ 
+
+Role based access control (RBA) 
+
+Few inbuilt roles, can create custom role 
+
+Access to resources based on roles 
+
+Contributor role – for VMs to perform mgmt. activities 
+
+Role to users at subscription, RG, R (Under Access Control IAM) 
+
+Owner role – manage everything 
+
+Reader roe – only view everything 
+
+Contributor role – manage all resources  
+
+ 
+
+Multi factor Authentication (MFA) 
+
+Extra level of security during login from registered mobile 
+
+Az AD Premium P2 is required for conditional access for MFA use 
+
+ 
+
+Page Break
+Az Key Vault 
+
+Securely store Secrets, Keys, Certificate, Passwords for applications  
+
+Should not store credentials in application code.  
+
+Data should be encrypted – encryption key + Algo  
+
+Store Db passwords, user passwords, Certificates for SSO, Access tokens  
+
+Fully managed by Az with SSL & TLS certificates 
+
+Key policies to control access to resources in key vault 
+
+Key mgmt. operations: create, get, update, import, delete, restore backup 
+
+ 
+
+Compliance  
+
+GDPR – General Data Protection Regulation – Law 
+
+ISO – common standards b/w nations 
+
+NIST – National institute of standards and Technology  
+
+Service-trust portal - https://servicetrust.microsoft.com/ for audit on copany on resources hosted on Az 
+
+Az Government – Az for govt organizations 
+
+ 
+
+Az Firewall  
+
+Fully managed service protects resources in Az VMs 
+
+High availability, scalability  
+
+Host Vms in VNet, uses internet, prone to attacks from internet 
+
+ 
+
+ 
+
+DDoS Protection 
+
+Basic protection is always enabled and free 
+
+Real time logs during attacks via Az Monitor 
+
+Post attack mitigation reports 
+
+Access to DDoS experts during active attack 
+
+ 
+
+Az Security Center (Microsoft Defender) 
+
+Cloud based Security mgmt system for resources from dashboard 
+
+Checks if resources are secure or not 
+
+Raises threat prevention and detection alerts 
+
+Protect identity in Az Ad 
+
+Identify suspicious user activities 
+
+ 
+
+Az Policies 
+
+Create policy to restrict access to certain resource e.g.  
+
+All resources to have tag – dept mandatory as to track billing as per dept 
+
+Don’t allow user to create VM with higher configuration 
+
+Definitions – shows all available policies 
+
+Assign policy across RG 
+
+If you add new resource, Az with mandate you to add Tag as policy in place 
+
+ 
+
+Management Groups 
+
+Organize resources when there are multiple subscriptions 
+
+Club these subscriptions under one mgmt group 
+
+Manage access, policies, for all these subscriptions 
+
+Root Mgmt. group – Hr Mgmt. Group, IT Mgmt. Group 
+
+Staging subscription and Production subscription 
+
+ 
+
+Az Locks 
+
+Ensures that resource is not deleted or modified accidently 
+
+Lock can be created at subscription / RG / R level by providing Lock Type: Delete / Read Only 
+
+CanNotDelete Type – Read and modify but cannot delete resource 
+
+ReadOnly Type – Read but can't delete or update 
+
+Case: A VM shouldn’t be deleted, you can put lock 
+
+ 
+
+Az Blueprints 
+
+Define repeatable set of Az resources to Az subscriptions 
+
+Deploy / copy Role Assignments, Policy Assignments, Az ARM and RG from one subscription to another subscription 
+
+ARM can be automatically deployed, at R or RG level 
+
+If any new subscription is added to Az, same set of resources are automatically added to new subscription 
+
+ 
+
+Az Monitor 
+
+Collect & analyze telemetry of Az and on-perm environment 
+
+Identify issues in applications 
+
+View metrics for resources in Az 
+
+Metrics – filter / add metrics and see graphs 
+
+Health – tell health of services across regions, any issues with Az services, Summary, Potential Impact and Issue Updates.  
+
+Alerts – any issue in services, we can get alerts 
+
+Activity log – activities can be seen e.g., stopped VM 
+
+ 
+
+Az Advisor 
+
+Recommendation engine on improving 4 critical areas: high availability, security, performance, cost 
+
+Impact: medium / low and impacted resources 
+
+Security – suggestions around security high / critical  
+
+ 
+
+ 
+
+Cost insights - recommendations about low-cost mgmt. 
+
+About Function Apps, VMs, Sql Database App Services (e.g., use Https) 
+
+ 
+
+Az Pricing 
+
+Tools for forecasting cost: Pricing Calc & Total Cost of Ownership 
+
+Pricing Calc - https://azure.microsoft.com/en-in/pricing/calculator/ 
+
+Total Cost of Ownership – If company is moving from on-prem to azure, we can forecast on-perm Vs Az Cloud cost https://azure.microsoft.com/en-us/pricing/tco/calculator/ 
+
+ 
+
+Cost Mgmt. and Billing 
+
+See cost till date, view invoice, drill down cost incurred, create filters on cost 
+
+Set budgets 
+
+Reservations - commitment on using service for 3 years, which will give huge discounts on price 
+
+Cost mgmt. -> Subscriptions & Invoices, Cost Management -> Cost Analysis 
+
+Budgets – set monthly budget and can create alerts 
+
+ 
+
+Az Support Plans (Help + Support) 
+
+Basic, Developer, Standard, Professional Direct  
+
+ 
+
+Az Mobile App & SLAs 
+
+ 
+
+ 
+Page Break
+Appendix - Resources Used in Project 
+
+Azure AD  
+
+API Management Service 
+
+App Service (pdev-web, portal-tqa, portal-pdev, portal-okta-new, saml-demo) 
+
+App Service Plan 
+
+Container Instances 
+
+Key Vault 
+
+BCAPISubecriptionKeys – for APIM access for BI-API and BC-API 
+
+Resource Group 
+
+Shared Dashboard 
+
+Storage Account 
+
+Containers – for devops (cli) 
+
+api-cgsinc-plugin-bi 
+
+File shares – No 
+
+Queues – bcmessagequeue 
+
+Tables - AzureWebJobHostLogs 
+
+Subscription 
+
+Virtual Network 
+
+ 
+
+Page Break
+SECURITY SERVICES in Az 
+
+VM Specific: - 
+
+Network Security Group (NSG) 
+
+Control Traffic to Az Virtual N/W & VMs & Subnets (Rules for I/O) 
+
+ 
+
+Network Interface Card (NIC) 
+
+Enables Vm to talk to Internet, Azure, On-Perm 
+
+ 
+
+Application Specific: - 
+
+Application Gateway (AG) 
+
+Type of Load balancer at layer - 7 i.e., at Application Layer 
+
+Route based /videos or /images or 
+
+ 
+
+Web Application Firewall (WAF – Front Door) 
+
+Protect web-apps in VM from SQL Injection & Cross Site Scripting, common exploits and vulnerabilities 
+
+ 
+
+Azure Front Door 
+
+ 
+
+ 
+
+Azure Traffic Manager (ATM) 
+
+DNS-based traffic load balancer 
+
+Page Break
+VM, VNet, Subnet, NIC, NSG, R, GR, G, Regions, WAF 
+
+ 
+
+Cost Management - 
+
+Containers + Microservices Way of implementation 
+
+Azure Devops - 
+
+APIM - 
+
+Page Break
+SUMMARY OF SERVICES - LIST: - 
+
+Cloud types: public, private, hybrid 
+
+Services Types: PAAS, IAAS, SAAS, DAAS 
+
+Expenditure: OpEx, CapEx 
+
+Share Responsibility 
+
+Az Geography, Az Region, Az  
+
+Resource, Resource Group 
+
+Virtual Network, Subnet, VN Peer Connection 
+
+Virtual Machines, VM Scale sets, Dedicated Hosts 
+
+Marketplace 
+
+Region Pairs - LRS, ZRS, GRS, RA-GRS, GZRS, RA-GZRS 
+
+  
+
+VM Specific: - Network Security Group, Load Balancer, Internal, External, Global 
+
+Application Specific: -Application Gateway, route based, Storage Account, Blob, File, Table, Queue 
+
+On-Premise to Cloud Migrations: - VPN Gateway, Virtual Network Peering, Express Route 
+
+ 
+
+WebApp	- VM way 
+
+App Service 
+
+Windows Virtual Desktop 
+
+Web-Application Firewall 
+
+Key-Value 
+
+Traffic manager 
+
+  
+
+Azure HDInsight 
+
+Azure ARM templates (Template Deployment) 
+
+Cognitive Services 
+
+Bot Service 
+
+Azure Devops - Repos, Files, Pipelines (YML), Job 
+
+ 
+
+SECURITY PROVIDING SERVICES: 
+
+Security center 
+
+Firewall 
+
+role based access 
+
+key vault 
+
+security tools 
+
+policies 
+
+mgmt. groups 
+
+locks 
+
+blueprints 
+
+monitor 
+
+advisor 
+
+Page Break
+INTERVIEW: 
+
+Cloud Design Patterns 
+
+Kubernetes & Docker Architecture 
+
+Microservices 
+
+Scaling in database 
+
+ARM templates: what is the structure of JSON, what's inside it 
+
+Use case of search: which DB will you use 
+
+URL Shortener – how will you design 
+
+Elastic search – searching to be faster 
+
+Vertical Vs Horizontal scaling – In Vertical, there is only one instance, hence risk of failure if something goes wrong. 
+
+ 
