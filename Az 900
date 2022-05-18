@@ -296,193 +296,106 @@ Elements –
   Outputs - Return values from deployed resources. 
 
 Cognitive Services 
-
 Build Cognitive intelligence  
-
 Vision, speech, language, decision, search APIs 
 
- 
-
 Bot Service 
-
 Build bots for interaction 
-
 Interpret user say and get proper response 
-
 Bot emulator 
 
-Page Break
 Azure Devops (CI & CD) 
-
 Development + Operational + Security -> common goal 
-
 Goal to deliver applications at high speed 
-
 Az Boards – track stories, backlog, tasks, features, bugs 
-
 Az Repos – Version control 
-
 Az Pipelines – Build and test code 
-
 Az Test Plans – manage testing and UAT and shareholder feedback 
-
 Az Artifacts – create npm & Nuget packages 
-
 Process - Create Project 
 
 Lifecycle of Devops –  
-
 Repos – HTTPS / SSH git clone URLs where our code is hosted 
-
 Files – View physical files of solution 
-
 Pipelines – Where is source code hosted 
-
 What is framework / language (.NET Core), YAML (azure-pipelines.yml) 
 
 Create Pipeline - Creates VM and copy code from Repos into VM and .NET F/w MS build our code and destroy VM (Compute – build code) 
-
 No Infra to build code (Automatically by build services) - JOB 
 
-Page Break
 DevTest Labs 
-
 Enables dev teams to self-manage VMs and ARM resources 
-
- 
-
 Az Web Apps (App Service – Plans) (No VM) 
-
 Dev/Test - For less demanding workloads 
-
 2 resources deployment – 1 is app service, 2 is app service plan 
 
- 
-
 Serverless Services (Serverless, PAAS) 
-
 No maintain infra, software 
-
 Pay for what you use, less CapEx and OpEx 
 
 Az Functions - Deploy function code to azure, pay for amount of time the code runs 
-
 Serverless Kubernetes - Deploy container-based applications, Serverless version of Kubernetes 
-
 Az Logic Apps - Design workflows, Create workflow and integrations 
-
 Az Event Grid - Event based service, Handle evens generated from Az services 
-
 Az API Mgmt. - Manage backend APIs 
-
 Az Sql Database - Serverless version of SQL db 
-
-Az Cosmos DB - Serverless  
-
- 
+Az Cosmos DB - Serverless   
 
 Az Functions 
-
 Just have code, upload it and run-on demand 
-
 Input binding -> Az Function -> Output binding 
-
 E.g., input binding – object added to blob, invoke function 
-
 E.g., output binding – store data into Az table 
-
 Costing – consumption plan (charge is for number of executions, execution time and memory used).  
-
 5 mins is execution time in consumption plan 
 
 Costing app service plan – have instance, Az function can run for longer time + more memory 
-
 Types –  
-
 Webhook + API – Az Function in invoked when it gets HTTP request 
-
 Timer - Az Function is run at specified schedule 
 
- 
-
 Az Event Grid 
-
 Listen to events raised by Az services 
-
 Subscribe to events 
-
 Define event handler and custom events 
-
 Highly available 
-
 Event source -> event handlers 
 
- 
-
 Az Cosmos DB 
-
 Multimodal DB, low-latency access, replication of data across regions, scales, fully managed 
-
 Cosmos DB Account: 
-
 Table Api – to store table like data 
-
 Sql Api	-- get data using sql queries ->DB ID -> Collection id – Partition Key + Throughput (allocate right amount of resources) 
-
 LEAF mongo Api – db on mongo api 
-
 Ability to scale, High performance, hundreds of million requests / responses (Search kind of functionality) 
-
 Learn how to enable fast search 
 
- 
-
 Az SQL Database (PAAS) 
-
 No manage, managed by Az 
 
 Differences of SQL on PASS Vs SQL IAAS 
-
 SQL–PAAS	- 99.99 % availability, built-in backup and recovery, minimal set of features are not 		   available, reduces Infra and maintenance cost 
-
 VM–SQL–IAAS	- Full control over SQL server engine, easy to migrate on-premise instance, maintained 		   by us, hence handle patch upgrades of system, handle manage availability manually 
 
 Managed Instance – if lift and shift existing on-premise database to Azure 
-
 Pricing is done in DTU (Database Transaction Unit) bundles measure of compute, storage and IO resources 
-
-vCore based model allows customers to choose amount of compute and storage, allows to control underlying resources and gives more flexibility. Is ideal if have licenses 
-
+vCore based model allows customers to choose amount of compute and storage, allows to control underlying resources and gives more flexibility. 
+Is ideal if have licenses.
 Can use SSMS, VS IDE, .NET programs to connect and query DB. 
 
 DTU – Database transaction Unit, it’s a measure of represents a blended measure of CPU, memory, reads, and writes. 
-
 Higher DTUs means higher Costing. DTUs are for SQL Database. 
-
 SQL server & SQL database are created when we create SQL Database in Az 
-
 In SQL Server, set Firewalls and VPN as to enable access to DB from external clients. 
-
- 
-
 Can also configure AD. Remember Server Name and Server Admin 
-
 In SQL Database get “Show database connection strings” and Server Name 
 
- 
-
 Az Database for MySQL (PAAS) 
-
 MySQL community Edition on Az 
-
 High-Availability, no manage by customer. 
-
 Oracle Database to be chosen from Marketplace 
-
 Underpricing tab, select vCores and Storage, depending on these params, cost is estimated 
-
 Create MySQL server and  
-
 Use MySQL workbench to connect  
 
 Azure Database for MySQL Server – settings - Connection Security – connection security to be added (add client IP) as to allow only  
